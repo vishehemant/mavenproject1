@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <name>${project.artifactId}</name>
+    <groupId>com.crisil.banking</groupId>
+    <artifactId>mavenproject1</artifactId>
+    <version>1.0.4-SNAPHOT</version>
+    <packaging>zip</packaging>
+    <properties>
+        <jdk.version>1.8</jdk.version>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.2</version>
+		<configuration>
+			<tagNameFormat>v@{project.version}</tagNameFormat>
+			<autoVersionSubmodules>true</autoVersionSubmodules>
+		</configuration>
+            </plugin>
+                <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+        </plugins>
+    </build>
+    <scm>
+        <developerConnection>scm:git:https://github.com/vishehemant/mavenproject1.git</developerConnection>
+        <connection>scm:git:https://github.com/vishehemant/mavenproject1.git</connection>
+	<url>scm:git:https://github.com/vishehemant/mavenproject1.git</url>
+      <tag>1.0.4</tag>
+  </scm>
+    <distributionManagement>
+        <repository>
+	    <id>nexus</id>
+            <name>nexus-releases</name>
+            <url>http://192.168.1.106:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>nexus-snapshot</name>
+            <url>http://192.168.1.106:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+   <dependencies>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>3.8.1</version>
+      </dependency>
+   </dependencies>
+
+
+</project>
