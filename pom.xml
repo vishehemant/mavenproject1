@@ -4,8 +4,7 @@
     <name>${project.artifactId}</name>
     <groupId>com.crisil.banking</groupId>
     <artifactId>mavenproject1</artifactId>
-    <version>1.0.4-SNAPHOT</version>
-    <packaging>zip</packaging>
+    <version>1.0.5-SNAPHOT</version>
     <properties>
         <jdk.version>1.8</jdk.version>
     </properties>
@@ -20,6 +19,24 @@
                     <target>${jdk.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
+            </plugin>
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>/home/devops/project/mavenproject1/zip.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
